@@ -42,3 +42,38 @@ x <- 1:10
 y <- (x-1)/(x+1)
 plot(y~x)
 lines(x, y)
+
+# 9.1.3.0.6
+n <- 1:10
+r <- 0.5
+G <- r^n
+sum(G)
+1/(1-r)
+# the sum of the series where n = 10 is 0.9990234, a little less than 1. this is less than the limit 1/(1-r)
+n <- 1:50
+r <- 0.5
+G <- r^n
+sum(G)
+# the sum of the series wherew n = 50 is rounded up to 1 and this is still less than the limit 1/(1-r)
+
+# 9.1.5.0.1
+lowLight <- Light[Light < 50]
+Light <- Light[Light < 50]
+# the second example is incorrect because you are rededfining the value of the vector and checking
+# a logical operator from that vector at the same time
+
+# 9.1.5.0.2
+random <- runif(20)
+random_mean <- mean(random)
+random_less <- random[random < random_mean]
+
+# 9.1.5.0.3
+test_vector <- random < random_mean
+indices <- which(test_vector == TRUE); indices
+
+# 9.1.5.0.4
+arbitrary <- 1:20
+arbitrary[(arbitrary%%2 == 0) == FALSE]
+
+arbitrary[(arbitrary%%2 != 0)]
+
