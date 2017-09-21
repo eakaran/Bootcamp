@@ -77,3 +77,25 @@ arbitrary[(arbitrary%%2 == 0) == FALSE]
 
 arbitrary[(arbitrary%%2 != 0)]
 
+# 9.2.1.0.1
+v <- rep(c(1, 2), c(4, 4))
+X <- matrix(v, nrow = 2, ncol = 4, byrow = TRUE); X
+
+# 9.2.1.0.2
+random_numbers <- rnorm(35, mean = 1, sd = 2)
+random_matrix <- matrix(random_numbers, nrow = 5, ncol = 7); random_matrix
+
+# 9.2.2.0.1
+C <- cbind(1:3, 4:6, 5:7); C
+D <- rbind(1:3, 4:6); D
+rbind(C, D)
+cbind(C, C)
+# cbind(C, D) does not work because C and D have a different number of rows, so the length of collumns differ
+
+# 9.3.0.0.1
+x <- seq(1, 27)
+dim(x) <- c(3, 9)
+is.array(x)
+is.matrix(x)
+# setting a dimension attribute on a vector turns it into a matrix and an array
+
