@@ -99,3 +99,7 @@ is.array(x)
 is.matrix(x)
 # setting a dimension attribute on a vector turns it into a matrix and an array
 
+# 9.6.0.0.1
+data.url <- "http://kingaa.github.io/R_Tutorial/hurricanes.csv"
+hurricane.dat <- read.csv(data.url, comment.char = '#'); hurricane.dat
+str(hurricane.dat)
