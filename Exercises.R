@@ -75,7 +75,7 @@ indices <- which(test_vector == TRUE); indices
 arbitrary <- 1:20
 arbitrary[(arbitrary%%2 == 0) == FALSE]
 
-arbitrary[(arbitrary%%2 != 0)]
+odds <- seq(1, 20, 2); odds
 
 # 9.2.1.0.1
 v <- rep(c(1, 2), c(4, 4))
@@ -85,7 +85,7 @@ X <- matrix(v, nrow = 2, ncol = 4, byrow = TRUE); X
 random_numbers <- rnorm(35, mean = 1, sd = 2)
 random_matrix <- matrix(random_numbers, nrow = 5, ncol = 7); random_matrix
 
-# 9.2.2.0.1
+# 9.2.2.0.3
 C <- cbind(1:3, 4:6, 5:7); C
 D <- rbind(1:3, 4:6); D
 rbind(C, D)
@@ -104,3 +104,28 @@ data.url <- "http://kingaa.github.io/R_Tutorial/hurricanes.csv"
 hurricane.dat <- read.csv(data.url, comment.char = '#'); hurricane.dat
 str(hurricane.dat)
 # there are 14 variables in this data frame
+
+# Section 11
+setwd("~/Desktop/Bootcamp")
+course.url <- "http://kingaa.github.io/R_Tutorial/"
+download.file(paste0(course.url,"Intro1.R"),destfile="Intro1.R",mode="w")
+source("Intro1.R")
+
+download.file(paste0(course.url,"Intro2.R"),destfile="Intro2.R",mode="w")
+download.file(paste0(course.url,"ChlorellaGrowth.csv"),destfile="ChlorellaGrowth.csv",mode="w")
+X <- read.csv("ChlorellaGrowth.csv",comment.char='#')
+Light <- X[,1]
+rmax <- X[,2]
+
+# 11.0.0.0.1
+source("Intro2edit.R")
+
+# 11.0.0.0.2
+source("Intro2.R")
+plot(fit)
+?plot.lm
+
+# 11.0.0.0.3
+plot(Light, rmax, xlim = c(0, 120), ylim = c(1, 4))
+
+# 11.0.0.0.4
