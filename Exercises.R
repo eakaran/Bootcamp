@@ -103,3 +103,4 @@ is.matrix(x)
 data.url <- "http://kingaa.github.io/R_Tutorial/hurricanes.csv"
 hurricane.dat <- read.csv(data.url, comment.char = '#'); hurricane.dat
 str(hurricane.dat)
+# there are 14 variables in this data frame
