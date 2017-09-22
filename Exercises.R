@@ -129,3 +129,31 @@ plot(fit)
 plot(Light, rmax, xlim = c(0, 120), ylim = c(1, 4))
 
 # 11.0.0.0.4
+source("Intro2edit2.R")
+
+# 11.0.0.0.5
+x <- 3:8
+y <- c(5*x + 3)
+
+colors <- c("red", "green", "blue", "purple")
+par(x, mfcol=c(2,2),col="red", lty=1)
+plot(y~x)
+fit <- lm(y~x)
+abline(fit)
+par(x, col="blue", lty=2)
+plot(y~x)
+fit <- lm(y~x)
+abline(fit)
+par(x, col="green", lty=3)
+plot(y~x)
+fit <- lm(y~x)
+abline(fit)
+par(x, col="purple", lty=4)
+plot(y~x)
+fit <- lm(y~x)
+abline(fit)
+
+# 11.0.0.0.6
+dev.print(file = "graphs.png", device=png, width = 600)
+
+
