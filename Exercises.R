@@ -156,4 +156,35 @@ abline(fit)
 # 11.0.0.0.6
 dev.print(file = "graphs.png", device=png, width = 600)
 
+# Section 12.1
+phi <- 1
+for (k in 1:100) {
+  phi <- 1+1/phi
+  print(c(k,phi))
+}
+
+a <- 1.1
+b <- 0.001
+T <- seq(from=1,to=200,by=1)
+N <- numeric(length(T))
+n <- 2
+for (t in T) {
+  n <- a*n/(1+b*n)
+  N[t] <- n
+}
+plot(T, N)
+
+# 12.1.0.0.1
+N <- numeric(length(T))
+for (t in 1:length(T)) {
+  n <- a*n/(1+b*n)
+  N[t] <- n
+}
+
+# 12.1.0.0.2
+T <- 1
+T <- 0
+# when T=1, N=100
+# if T=0 the same thing happens
+
 
