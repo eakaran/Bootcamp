@@ -44,17 +44,17 @@ plot(y~x)
 lines(x, y)
 
 # 9.1.3.0.6
-n <- 1:10
+n <- 0:10
 r <- 0.5
 G <- r^n
 sum(G)
 1/(1-r)
-# the sum of the series where n = 10 is 0.9990234, a little less than 1. this is less than the limit 1/(1-r)
-n <- 1:50
+# the sum of the series where n = 10 is 1.9990234, a little less than 2. this is less than the limit 1/(1-r)
+n <- 0:50
 r <- 0.5
 G <- r^n
 sum(G)
-# the sum of the series wherew n = 50 is rounded up to 1 and this is still less than the limit 1/(1-r)
+# the sum of the series wherew n = 50 is rounded up to 2 and this is equal to the limit 1/(1-r)
 
 # 9.1.5.0.1
 lowLight <- Light[Light < 50]
