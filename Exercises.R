@@ -187,4 +187,57 @@ T <- 0
 # when T=1, N=100
 # if T=0 the same thing happens
 
+# Section 12.2
+phi <- 20
+k <- 1
+while (k <= 100) {
+  phi <- 1+1/phi
+  print(c(k,phi))
+  k <- k+1
+}
 
+# 12.2.0.0.1
+count <- 0
+phi <- 20
+conv <- FALSE
+while (!conv) {
+  phi.new <- 1+1/phi
+  conv <- phi==phi.new
+  phi <- phi.new
+  count<- count +1
+}
+# it takes 40 iterations
+
+phi <- 20
+while (TRUE) {
+  phi.new <- 1+1/phi
+  if (phi==phi.new) break
+  phi <- phi.new
+}
+
+phi <- 3
+for (k in seq_len(1000)) {
+  phi.new <- 1+1/phi
+  if (phi==phi.new) break
+  phi <- phi.new
+}
+
+# 12.2.0.0.2
+a <- 1.1
+b <- 0.001
+t <- 1
+N <- numeric(length(T))
+n <- 2
+while (t <= 200) {
+  n <- a*n/(1+b*n)
+  N[t] <- n
+  t <- t+1
+}
+
+# 12.3
+phi <- 12
+repeat {
+  phi.new <- 1/(1+phi)
+  if (phi==phi.new) break
+  phi <- phi.new
+}
