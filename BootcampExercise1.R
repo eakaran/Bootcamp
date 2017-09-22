@@ -67,3 +67,77 @@ for (i in 1:length(bankAccounts)) {
 
 # HINT: variables must be initialized before you can perform operations on them
 # HINT 2: look at the rep() function and see if you can use that to initialize a variable that will help you.
+
+# Exercise 6
+bankAccounts <- c(10, 9.2, 5.6); #define bank accounts here
+interestRate <- 0.0525;   
+house <- c(4.8, 3.8, 5.7); #deduct
+food<- c(3.5, 4.3, 5.0);    #deduct
+fun <- c(7.8, 2.1, 10.5);  #deduct
+#and incomes (through TAships) of 
+income <- c(21, 21, 21); #add this
+
+for (j in 1:5) {
+  for (i in 1:length(bankAccounts)) {
+    #step 1 modify bankAccounts so that amounts reflect income and expenses
+    bankAccounts[i] <- bankAccounts[i] - house[i] - food[i] - fun[i] + income[i]
+    #step 2 get calculate interest and add to accounts from step 1
+    compounded[i] <- interestRate*bankAccounts[i] + bankAccounts[i]; 
+    bankAccounts[i] <- compounded[i]
+    #you can actually use the line you have already written if you
+    #modify amounts in bankAccounts directly in step 1
+  }
+}
+
+# Exercise 7) Three students have estimated annual expenditures for food, housing, and fun of: (in thousands of dollars)
+bankAccounts <- c(10, 9.2, 5.6); #define bank accounts here
+house <- c(4.8, 3.8, 5.7); 
+food<- c(3.5, 4.3, 5.0); 
+fun <- c(7.8, 2.1, 10.5); 
+
+#and incomes (through TAships) of 
+
+income <- c(21, 21, 21);
+
+# Modify the 5-year interest-compounding code from #5 and #6 so that it runs from 2015-2020 
+# and so that in odd numbered years students 1 and 3 get trust fund disbursements of $5000. 
+# hint the modulus function %% will be helpful
+
+for (j in 1:6) {
+  for (i in 1:length(bankAccounts)) {
+    #in odd numbered years students 1 and 3 get trust fund disbursements of $5000
+    if((j %% 2 != 0) && (i == 1 || i == 3)){
+      bankAccounts[i] <- bankAccounts[i] + 5
+    }
+    #step 1 modify bankAccounts so that amounts reflect income and expenses
+    bankAccounts[i] <- bankAccounts[i] - house[i] - food[i] - fun[i] + income[i]
+    #step 2 get calculate interest and add to accounts from step 1
+    compounded[i] <- interestRate*bankAccounts[i] + bankAccounts[i]; 
+    bankAccounts[i] <- compounded[i]
+    #you can actually use the line you have already written if you
+    #modify amounts in bankAccounts directly in step 1
+    
+  }
+  print(bankAccounts)
+}
+
+# Exercise 8) use a while loop to sum all numbers from 1:17. 
+# You will need to use a counter variable (like index seen in class).
+k <- 1
+sum.k <- 0
+while(k <= 17){
+  sum.k <- k + sum.k
+  k <- k + 1
+}
+
+# Exercise 9) write a function takes a number, and prints ‘small’ if number less than or equal 
+# to -1; ‘medium’ if between -1 and + 1’big’ if greater than or equal to + 1
+number <- -2
+if(number <= -1){
+  cat("small")
+} else if((number > -1) && (number < 1)){
+  cat("medium")
+} else{
+  cat("big")
+}
+
