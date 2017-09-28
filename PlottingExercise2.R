@@ -22,6 +22,22 @@ num_pval <- length(pvals); num_pval
 # the smallest P-values is expected to be 1/num_pval
 # the second smallest P-value is expected to be 2/num_pval
 # the largest P-value is expected to be num_pval/num_pval (or 1)
-exp_pvals <- seq(1, num_pval)
+exp_pvals <- seq(1, num_pval, by=1)
+
+for(pp in 1:num_pval){
+  exp_pvals[pp] <- pp/num_pval
+}
+
+# The observed P-values in the “pvals” vector are in the order that they SNPs appear across the chromosome
+# sort them smallest to largest
+# Use the “sort” function to sort the P-values. Store them in the vector “sort_pvals”
+sort_pvals <- sort(pvals)
+
+# Find the –log10 of the observed and expected P-values.
+# Store these in the vector “log_sort_pvals” and “log_exp_pvals”.
+log_sort_pvals <- log10(sort_pvals)
+log_exp_pvals <- log10(exp_pvals)
+
+qqplot(log_sort_pvals, log_exp_pvals, plot.it = TRUE, xlab = deparse(substitute(log_sort_pvals)), ylab = deparse(substitute(log_exp_pvals)))
 
 
