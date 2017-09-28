@@ -1,6 +1,7 @@
 # Elizabeth Karan
 # Plotting exercise 2: data manipulation
 
+# Question 1
 # pvals come from code from class
 # in file: "AnalyzeSNPdata.2017.student.R"
 source("AnalyzeSNPdata.2017.student.R")
@@ -42,3 +43,24 @@ qqplot(log_sort_pvals,log_exp_pvals, plot.it = TRUE, xlab = deparse(substitute(l
 
 qqline(log_exp_pvals, col = "red", lty=2)
 
+# Question 2
+# Loadthefile“pheno.sim.2014.txt”.Store the phenotypes in a data frame called “zz”.
+zz <- read.table('pheno.sim.2014-2.txt', header = TRUE)
+
+# Find the value of the phenotype such that 25% of the individuals have a phenotype 
+# LESS than this value.
+# create a vector storing quantile cutoff values for ZZ
+quantilesZZ <- quantile(zz[, 2], probs = seq(0, 1, 0.25), names = FALSE)
+quantilesZZ[2]
+# returns 4.768756
+
+# Find the value of the phenotype such that 25% of the individuals have a phenotype 
+# GREATER than this value (i.e. 75% of the individuals have a phenotype LESS than this value).
+quantilesZZ[4]
+# returns 7.354975
+
+# Make a density plot of the distribution of phenotypes(i.e.the blood glucose levels). 
+plot(density(zz[, 2]), main = "Glucose mmol/L", lwd = 2)
+# Add vertical lines to the plot to denote the 25% and 75% tails of the distribution.
+abline(v = quantile(zz[, 2], 0.25), lwd = 2, col = 2)
+abline(v = quantile(zz[, 2], 0.75), lwd = 2, col = 4)
