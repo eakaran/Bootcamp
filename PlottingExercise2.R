@@ -38,6 +38,7 @@ sort_pvals <- sort(pvals)
 log_sort_pvals <- log10(sort_pvals)
 log_exp_pvals <- log10(exp_pvals)
 
-qqplot(log_sort_pvals, log_exp_pvals, plot.it = TRUE, xlab = deparse(substitute(log_sort_pvals)), ylab = deparse(substitute(log_exp_pvals)))
+qqplot(log_sort_pvals,log_exp_pvals, plot.it = TRUE, xlab = deparse(substitute(log_sort_pvals)), ylab = deparse(substitute(log_exp_pvals)))
 
+qqline(log_exp_pvals, col = "red", lty=2)
 
